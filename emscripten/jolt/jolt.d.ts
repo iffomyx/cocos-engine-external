@@ -1,6 +1,10 @@
-export default Jolt;
-declare function Jolt<T>(target?: T): Promise<T & typeof Jolt>;
-declare module Jolt {
+declare module 'external:emscripten/jolt/jolt.release.wasm.js' {
+    export default Jolt;
+}
+
+declare function Jolt (moduleOptions?: any): Promise<void>;
+
+declare namespace Jolt {
     function destroy(obj: any): void;
     function _malloc(size: number): number;
     function _free(ptr: number): void;
